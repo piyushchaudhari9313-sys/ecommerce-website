@@ -1,109 +1,75 @@
-let home=document.querySelector("#home");
-let cloths=document.querySelector("#cloths");
-let blogs=document.querySelector("#blogs");
-let review=document.querySelector("#review");
-let contactus=document.querySelector("#contactus");
-let explore=document.querySelector("#Explore");
 
-
-
-
-
-home.addEventListener("click",()=>{
-    home.classList.add("active");
-    cloths.classList.remove("active");
-    blogs.classList.remove("active");
-    review.classList.remove("active");
-    contactus.classList.remove("active");
-
-    
+let explore = document.querySelector("#Explore");
+explore.addEventListener("click", () => {
+  document.getElementById("Cloths").scrollIntoView({
+    behavior: "smooth",
+  });
+  cloths.classList.add("active");
 });
-cloths.addEventListener("click",()=>{
-    home.classList.remove("active");
-    cloths.classList.add("active");
-    blogs.classList.remove("active");
-    review.classList.remove("active");
-    contactus.classList.remove("active");
 
-    
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("show");
+  });
 });
-blogs.addEventListener("click",()=>{
-    home.classList.remove("active");
-    cloths.classList.remove("active");
-    blogs.classList.add("active");
-    review.classList.remove("active");
-    contactus.classList.remove("active");
 
-    
-});
-review.addEventListener("click",()=>{
-    home.classList.remove("active");
-    cloths.classList.remove("active");
-    blogs.classList.remove("active");
-    review.classList.add("active");
-    contactus.classList.remove("active");
+let links = document.querySelectorAll(".nav-links a");
 
-    
-});
-contactus.addEventListener("click",()=>{
-    home.classList.remove("active");
-    cloths.classList.remove("active");
-    blogs.classList.remove("active");
-    review.classList.remove("active");
-    contactus.classList.add("active")
-
-    
-});
-explore.addEventListener("click",()=>{
-     document.getElementById("Cloths").scrollIntoView({
-        behavior: "smooth"
-     });
-    home.classList.remove("active");
-    cloths.classList.add("active");
-    blogs.classList.remove("active");
-    review.classList.remove("active");
-    contactus.classList.remove("active");
-    
-});
- 
-let login=document.querySelector("#Login");
-let loginpage= document.querySelector(".login-page");
-login.addEventListener("click",()=>{
-    loginpage.style.display="block"
-    loginpage.scrollIntoView({
-        behavior: "smooth"
-
-    });
-})
-
-let loged=document.querySelector("#loged");
-let email=document.querySelector("#email");
-let pass=document.querySelector("#password");
-
-loged.addEventListener("click",()=>{
-    if(email.value=="" ||pass.value==""){
-        alert("Enter Your Email & Password");
+for (let i = 0; i < links.length; i++) {
+  links[i].addEventListener("click", () => {
+    for (let j = 0; j < links.length; j++) {
+      links[j].classList.remove("active");
     }
-    else{
-        alert("You Loged");
-        document.querySelector(".login-page").style.display="none"
-    }
-    email.value="";
-    pass.value="";
-})
 
-let submit=document.querySelector("#submit");
-let name=document.querySelector("#name");
-let number=document.querySelector("#number")
+    links[i].classList.add("active");
+  });
+}
 
-submit.addEventListener("click",()=>{
-    if(name.value==""|| number.value==""){
-        alert("Please Enter Your Name & Number");
-    }
-    else{
-        alert(name.value+" Thanks For Joining")
+let ham = document.querySelector("#ham");
+let navLinks = document.querySelector("#nav-links");
 
-    }
-    name.value="";
-    number.value="";
-})
+ham.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
+
+let login = document.querySelector("#Login");
+let loginpage = document.querySelector(".login-page");
+login.addEventListener("click", () => {
+  loginpage.classList.add("show");
+  navLinks.classList.remove("show");
+
+  loginpage.scrollIntoView({
+    behavior: "smooth",
+  });
+});
+
+let logged = document.querySelector("#logged");
+let email = document.querySelector("#email");
+let pass = document.querySelector("#password");
+
+logged.addEventListener("click", () => {
+  if (email.value == "" || pass.value == "") {
+    alert("Enter Your Email & Password");
+  } else {
+    alert("You Logged In");
+    document.querySelector(".login-page").style.display = "none";
+  }
+  email.value = "";
+  pass.value = "";
+});
+
+let submit = document.querySelector("#submit");
+let name = document.querySelector("#name");
+let number = document.querySelector("#number");
+
+submit.addEventListener("click", () => {
+  if (name.value == "" || number.value == "") {
+    alert("Please Enter Your Name & Number");
+  } else if (number.value.length < 10) {
+    alert("Enter a Valid Number");
+  } else {
+    alert(name.value + " Thanks For Joining");
+  }
+  name.value = "";
+  number.value = "";
+});

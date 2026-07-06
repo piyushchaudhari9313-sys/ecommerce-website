@@ -14,23 +14,26 @@
 </head>
 
 <body>
-
     <div class="navbar">
         <h1 class="logo">Shopping Cart</h1>
-        <ul class="nav-links">
+         <div class="menu-icon" id="ham">
+            <i class="fa-solid fa-bars"></i>
+         </div>
+        <ul class="nav-links" id="nav-links">
             <li><a href="#Home" id="home">Home</a></li>
             <li><a href="#Cloths" id="cloths">Cloths</a></li>
             <li><a href="#Blogs" id="blogs">Blogs</a></li>
             <li><a href="#Review" id="review">Review</a></li>
             <li><a href="#ContactUs" id="contactus">Contact Us</a></li>
+            <li><button id="Login">Login</button></li>
+
         </ul>
-        <button id="Login">Login</button>
 
     </div>
         <div class="login-page">
         <input type="email" placeholder="Enter Your Email" id="email" required>
         <input type="password" placeholder="Enter Your Password" id="password"><br>
-        <button  id="loged">Log In</button>
+        <button  id="logged">Log In</button>
     </div>
     <section id="Home" class="section">
        
@@ -227,15 +230,14 @@
                 </div>
             </div>
         </div>
-    </section>
-
+    </section>  
     <section id="ContactUs" class="section">
         <div class="head">
             <h1>Contact <span>Us</span></h1>
         </div>
         <div class="contact-page">
            <input type="text" placeholder="Enter Your Name" id="name"> <br>
-           <input type="number" placeholder="Enter Your Number" id="number"><br>
+           <input type="tel" placeholder="Enter Your Number" id="number"><br>
            <button id="submit">Submit</button>
         </div>
     </section>
